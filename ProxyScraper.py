@@ -11,10 +11,6 @@ class PS(object):
         self.base = 'https://www.sslproxies.org/'
 
     def proxies(self):
-        try:
-            os.mkdir('Proxies')
-        except:
-            ''
         self.pproxies = []
         url = self.base
         r = self.s.get(url)
@@ -28,6 +24,7 @@ class PS(object):
             f = open(os.path.join('Proxies.txt'),'a')
             f.write(makeprox['ip'] +':'+ makeprox['port'] + '\n')
             f.close()
+        print('x100 Proxies have been saved to: Proxies.txt')
 
     def prox(self):
         return random.randint(0, len(self.pproxies) - 1)
